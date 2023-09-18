@@ -14,6 +14,7 @@ import Productinfo from '../screens/productinfo';
 import AddressScreen from '../screens/adressScreen';
 import AddAddressScreen from '../screens/addAdress';
 import ConfirmationScreen from '../screens/confirmationScreen';
+import OrderScreen from '../screens/orderScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -138,6 +139,11 @@ const Stacknav = () => {
         <Stack.Screen
           name="Confirm"
           component={ConfirmationScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Order"
+          component={OrderScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

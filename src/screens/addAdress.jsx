@@ -36,6 +36,17 @@ const AddAddressScreen = () => {
       postalCode: '540011',
       _id: '65055bdcc717b143aa15115',
     },
+    {
+      address: {
+        houseNo: '#22',
+        landmark: 'near hemyar mani',
+        mobileNo: '100633258',
+        name: 'mailari ,ailari',
+        postalCode: '598844',
+        street: 'siddapura chikkere',
+      },
+      userId: '6503fab83c705e627a4080d2',
+    },
   ]);
   console.log(addresses);
   const {userId, setUserId} = useContext(UserType);
@@ -120,7 +131,7 @@ const AddAddressScreen = () => {
         <View>
           <Text>jhjgfg</Text>
           {addresses.map(data => (
-            <View style={{flex:1}} key={data._id}>
+            <View style={{flex: 1}} key={data._id}>
               <TouchableOpacity
                 style={{
                   borderWidth: 1,
