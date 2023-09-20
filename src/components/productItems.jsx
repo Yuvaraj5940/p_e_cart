@@ -1,4 +1,11 @@
-import {StyleSheet, Text, View, Pressable, Image} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  Image,
+  Dimensions,
+} from 'react-native';
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {addToCart} from '../redux/cartreducer';
@@ -17,7 +24,11 @@ const ProductItem = ({item}) => {
   return (
     <Pressable style={{marginHorizontal: 20, marginVertical: 25}}>
       <Image
-        style={{width: 150, height: 150, resizeMode: 'contain'}}
+        style={{
+          width: Dimensions.get('screen').width / 2 - 20 * 2,
+          height: 150,
+          resizeMode: 'contain',
+        }}
         source={{uri: item?.image}}
       />
 

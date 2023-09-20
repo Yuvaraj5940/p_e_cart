@@ -7,6 +7,7 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
+  Dimensions,
 } from 'react-native';
 import React, {useContext, useEffect, useState, useCallback} from 'react';
 // import {useNavigation} from '@react-navigation/native';
@@ -594,7 +595,7 @@ const Home = ({navigation}) => {
               }}
               key={index}>
               <Image
-                style={{width: 180, height: 180, resizeMode: 'contain'}}
+                style={{width:Dimensions.get('screen').width /2, height: 180, resizeMode: 'contain'}}
                 source={{uri: item?.image}}
               />
             </Pressable>
