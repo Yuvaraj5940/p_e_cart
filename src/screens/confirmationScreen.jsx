@@ -13,6 +13,8 @@ import axios from 'axios';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {cleanCart} from '../redux/cartreducer';
+import RazorpayCheckout from 'react-native-razorpay';
+
 
 const ConfirmationScreen = ({navigation}) => {
   const steps = [
@@ -108,49 +110,49 @@ const ConfirmationScreen = ({navigation}) => {
       console.log('errror', error);
     }
   };
-  //   const pay = async () => {
-  //     try {
-  //       const options = {
-  //         description: "Adding To Wallet",
-  //         currency: "INR",
-  //         name: "Amazon",
-  //         key: "rzp_test_E3GWYimxN7YMk8",
-  //         amount: total * 100,
-  //         prefill: {
-  //           email: "void@razorpay.com",
-  //           contact: "9191919191",
-  //           name: "RazorPay Software",
-  //         },
-  //         theme: { color: "#F37254" },
-  //       };
+  const pay = async () => {
+    try {
+      const options = {
+        description: 'Adding To Wallet',
+        currency: 'INR',
+        name: 'Amazon',
+        key: 'rzp_test_sPMdxWyKpVvSMo',
+        amount: total * 100,
+        prefill: {
+          email: 'uvyuvi1698.com',
+          contact: '900990000',
+          name: 'RazorPay Software',
+        },
+        theme: {color: '#F37254'},
+      };
 
-  //       const data = await RazorpayCheckout.open(options);
+      const data = await RazorpayCheckout.open(options);
 
-  //       console.log(data)
-
-  //       const orderData = {
-  //         userId: userId,
-  //         cartItems: cart,
-  //         totalPrice: total,
-  //         shippingAddress: selectedAddress,
-  //         paymentMethod: "card",
-  //       };
-
-  //       const response = await axios.post(
-  //         "http://localhost:8000/orders",
-  //         orderData
-  //       );
-  //       if (response.status === 200) {
-  //         navigation.navigate("Order");
-  //         dispatch(cleanCart());
-  //         console.log("order created successfully", response.data);
-  //       } else {
-  //         console.log("error creating order", response.data);
-  //       }
-  //     } catch (error) {
-  //       console.log("error", error);
-  //     }
-  //   };
+      console.log(data);
+      const orderData = {
+        userId: userId,
+        cartItems: cart,
+        totalPrice: total,
+        shippingAddress: selectedAddress,
+        paymentMethod: 'card',
+      };
+      console.log(orderData);
+      navigation.navigate('Order');
+      // const response = await axios.post(
+      //   'http://localhost:8000/orders',
+      //   orderData,
+      // );
+      // if (response.status === 200) {
+      //   navigation.navigate('Order');
+      //   dispatch(cleanCart());
+      //   console.log('order created successfully', response.data);
+      // } else {
+      //   console.log('error creating order', response.data);
+      // }
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
   return (
     <ScrollView style={{marginTop: 55}}>
       <View style={{flex: 1, paddingHorizontal: 20, paddingTop: 40}}>
@@ -162,7 +164,7 @@ const ConfirmationScreen = ({navigation}) => {
             justifyContent: 'space-between',
           }}>
           {steps?.map((step, index) => (
-            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{justifyContent: 'center', alignItems: 'center'}} key={index}>
               {index > 0 && (
                 <View
                   style={[
@@ -204,7 +206,7 @@ const ConfirmationScreen = ({navigation}) => {
       </View>
 
       {currentStep == 0 && (
-        <View style={{marginHorizontal: 20}}>
+        <View style={{marginHorizontal: 20}} key={currentStep}>
           <Text style={{fontSize: 16, fontWeight: 'bold'}}>
             Select Delivery Address
           </Text>
@@ -222,7 +224,7 @@ const ConfirmationScreen = ({navigation}) => {
                   paddingBottom: 17,
                   marginVertical: 7,
                   borderRadius: 6,
-                }}>
+                }} key={index}>
                 {selectedAddress && selectedAddress._id === item?._id ? (
                   <FontAwesome5 name="dot-circle" size={20} color="#008397" />
                 ) : (

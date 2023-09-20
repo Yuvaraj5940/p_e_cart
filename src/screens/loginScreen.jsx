@@ -20,6 +20,7 @@ const LoginScreen = ({navigation}) => {
     const checkLoginStatus = async () => {
       try {
         const token = await AsyncStorage.getItem('authToken');
+        // const token = await AsyncStorage.clear()
 
         if (token) {
           navigation.replace('Main');
@@ -36,21 +37,24 @@ const LoginScreen = ({navigation}) => {
       email: email,
       password: password,
     };
+    console.log(user)
     // const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTAzZmFiODNjNzA1ZTYyN2E0MDgwZDIiLCJpYXQiOjE2OTQ3NzQyOTV9.FtmpTv_rjK0p7iEtVdWKzpPoPApkUvnWlLKIJSiVIzc'
     // AsyncStorage.setItem('authToken', token);
+    // const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTBhNzkxMTI3NDMxMjBjZjMwYzIzNjgiLCJpYXQiOjE2OTUxODYyOTN9.8Z4k67oW8PQzFXmshDiwB4OZkoAdeivyo0hi9kpxmNo'
+    // AsyncStorage.setItem('authToken', token);
 
-    // axios
-    //   .post('http://localhost:8000/login', user)
-    //   .then(response => {
-    //     console.log(response);
-    //     const token = response.data.token;
-    //     AsyncStorage.setItem('authToken', token);
-    //     navigation.replace('Home');
-    //   })
-    //   .catch(error => {
-    //     Alert.alert('Login Error', 'Invalid Email', error);
-    //     console.log(error);
-    //   });
+    axios
+      .post('http://localhost:8000/login', user)
+      .then(response => {
+        console.log(response);
+        const token = response.data.token;
+        AsyncStorage.setItem('authToken', token);
+        navigation.replace('Home');
+      })
+      .catch(error => {
+        Alert.alert('Login Error', 'Invalid Email', error);
+        console.log(error);
+      });
   };
   return (
     <View style={styles.container}>
