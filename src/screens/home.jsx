@@ -450,7 +450,7 @@ const Home = ({navigation}) => {
         setProducts(response.data);
         console.log(response.data);
       } catch (error) {
-        setProducts(rdata);
+        // setProducts(rdata);
         console.log('error message', error);
       }
     };
@@ -595,7 +595,11 @@ const Home = ({navigation}) => {
               }}
               key={index}>
               <Image
-                style={{width:Dimensions.get('screen').width /2, height: 180, resizeMode: 'contain'}}
+                style={{
+                  width: Dimensions.get('screen').width / 2,
+                  height: 180,
+                  resizeMode: 'contain',
+                }}
                 source={{uri: item?.image}}
               />
             </Pressable>
@@ -633,7 +637,8 @@ const Home = ({navigation}) => {
                 marginVertical: 10,
                 alignItems: 'center',
                 justifyContent: 'center',
-              }}>
+              }}
+              key={index}>
               <Image
                 style={{width: 150, height: 150, resizeMode: 'contain'}}
                 source={{uri: item?.image}}
@@ -706,38 +711,6 @@ const Home = ({navigation}) => {
               />
             )}
           />
-
-          {/* <TextInput
-            value={fname}
-            style={{
-              width: '80%',
-              fontWeight: 'bold',
-              fontSize: 20,
-              backgroundColor: '#ffff',
-              borderRadius: 10,
-              paddingHorizontal: 10,
-            }}
-            onChangeText={setFname}
-            placeholder="filter"
-          />
-          <Pressable
-            onPress={() => setCategory(fname)}
-            style={{
-              width: '20%',
-              backgroundColor: 'blue',
-              borderRadius: 15,
-              alignSelf: 'center',
-            }}>
-            <Text
-              style={{
-                textAlign: 'center',
-                padding: 10,
-                color: '#fff',
-                fontSize: 16,
-              }}>
-              Find
-            </Text>
-          </Pressable> */}
         </View>
         <View
           style={{
