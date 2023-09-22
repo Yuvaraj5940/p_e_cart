@@ -74,6 +74,7 @@ const Cartscreen = ({navigation}) => {
       <Text style={{marginHorizontal: 10}}>EMI details Available</Text>
 
       <Pressable
+        disabled={cart.length==0?true:false}
         onPress={() => navigation.navigate('Confirm')}
         style={{
           backgroundColor: '#FFC72C',

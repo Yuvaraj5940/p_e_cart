@@ -40,31 +40,32 @@ const RegisterScreen = ({navigation}) => {
 
     // send a POST  request to the backend API to register the user
     // try {
-    const res = await axios.post('http://localhost:8000/register', user);
-    console.log(res);
+    // const res = await axios.post('http://localhost:8000/register', user);
+    // console.log(res);
 
     // } catch (error) {
     //   console.log(error)
     // }
-    // axios.post('http://localhost:8000/register', user)
-    // .then(response => {
-    //   console.log(response);
-    //   Alert.alert(
-    //     'Registration successful',
-    //     'You have been registered Successfully',
-    //   );
-    //   setName('');
-    //   setEmail('');
-    //   setPassword('');
-    // })
-    // .catch(error => {
-    //   Alert.alert(
-    //     'Registration Error',
-    //     'An error occurred while registering',
-    //   );
-    //   console.log('registration failed', error);
+    axios
+      .post('http://localhost:8000/register', user)
+      .then(response => {
+        console.log(response);
+        Alert.alert(
+          'Registration successful',
+          'You have been registered Successfully',
+        );
+        setName('');
+        setEmail('');
+        setPassword('');
+      })
+      .catch(error => {
+        Alert.alert(
+          'Registration Error',
+          'An error occurred while registering',
+        );
+        console.log('registration failed', error);
+      });
     // a737d0655f5fd425c3f96ea13f44982005c335e2//th15
-    // });
   };
   return (
     <View style={styles.container}>

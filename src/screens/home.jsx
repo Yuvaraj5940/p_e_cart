@@ -18,7 +18,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {SliderBox} from 'react-native-image-slider-box';
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {BottomModal, ModalContent} from 'react-native-modals';
 
 import axios from 'axios';
@@ -769,7 +769,7 @@ const Home = ({navigation}) => {
                   backgroundColor:
                     selectedAddress === item ? '#FBCEB1' : 'white',
                 }}
-                key={item._id}>
+                key={index}>
                 <View
                   style={{flexDirection: 'row', alignItems: 'center', gap: 3}}>
                   <Text style={{fontSize: 13, fontWeight: 'bold'}}>

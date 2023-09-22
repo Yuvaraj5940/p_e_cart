@@ -38,8 +38,8 @@ const LoginScreen = ({navigation}) => {
       password: password,
     };
     console.log(user)
-    // const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTAzZmFiODNjNzA1ZTYyN2E0MDgwZDIiLCJpYXQiOjE2OTQ3NzQyOTV9.FtmpTv_rjK0p7iEtVdWKzpPoPApkUvnWlLKIJSiVIzc'
-    // AsyncStorage.setItem('authToken', token);
+    const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTAzZmFiODNjNzA1ZTYyN2E0MDgwZDIiLCJpYXQiOjE2OTQ3NzQyOTV9.FtmpTv_rjK0p7iEtVdWKzpPoPApkUvnWlLKIJSiVIzc'
+    AsyncStorage.setItem('authToken', token);
     // const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTBhNzkxMTI3NDMxMjBjZjMwYzIzNjgiLCJpYXQiOjE2OTUxODYyOTN9.8Z4k67oW8PQzFXmshDiwB4OZkoAdeivyo0hi9kpxmNo'
     // AsyncStorage.setItem('authToken', token);
 
